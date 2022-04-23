@@ -44,6 +44,10 @@ def process_json():
         return jsonify(Response = "True", Prediction = psychoDict[label])
     else:
         return jsonify(Response = "False", Error = "Internal Error")
+    
+@app.route("/")
+def test():
+    return "Working"
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=environ.get("PORT",5000))
+    app.run(debug=True)
