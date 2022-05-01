@@ -4,11 +4,12 @@ from PIL import Image
 from cv2 import cv2
 from keras.models import load_model
 import urllib.request
-from os import environ
+from flask_cors import CORS
 
 from sqlalchemy import true
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 model = load_model('psycho_model')
 
@@ -44,10 +45,15 @@ def process_json():
         return jsonify(Response = "True", Prediction = psychoDict[label])
     else:
         return jsonify(Response = "False", Error = "Internal Error")
-    
+
 @app.route("/")
 def test():
     return "Working"
+
+@app.route('/add', methods=['POST'])
+def add():
+    data = request.get_json()
+    return jsonify({'sum': data['a'] + data['b']})
 
 if __name__ == '__main__':
     app.run(debug=True)
