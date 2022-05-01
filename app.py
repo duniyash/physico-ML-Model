@@ -46,7 +46,7 @@ def process_json():
     else:
         return jsonify(Response = "False", Error = "Internal Error")
 
-@app.route("/test")
+@app.route("/")
 def test():
     return "Working"
 
