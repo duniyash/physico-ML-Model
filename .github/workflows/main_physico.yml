@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'physico'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2AD370DB530B4863B0325E5EA89C78AA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3EAEE3DAC25B44E188E6E9F2332BCA43 }}
